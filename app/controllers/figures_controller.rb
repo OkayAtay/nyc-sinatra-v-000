@@ -37,4 +37,17 @@ class FiguresController < ApplicationController
   get '/figures/new' do
     erb :'/figures/new'
   end
+
+  patch '/figures/:id' do
+    @figure = Figure.create(name: params["figure"]["name"])
+    @figure.title_ids = params["figure"]["title_ids"]
+    @figure.landmark_ids = params["figure"]["landmark_ids"]
+    if params["title"]["name"] != ""
+      @figure.titles << Title.create(name: params["title"]["name"])
+    elsif params["landmark"]["name"] != ""
+      @figure.landmarks << Landmark.create(name: params["landmark"]["name"])
+    end
+    @figure.save
+    redirect("/figures/#{@figure.id}")
+  end
 end
