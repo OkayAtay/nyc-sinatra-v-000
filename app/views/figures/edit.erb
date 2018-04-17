@@ -8,7 +8,9 @@
   <% Title.all.each do |title| %>
   <input type="checkbox" name=figure[title_ids] value="<%=title.id%>"<%='checked' if @figure.title_ids.include?(title)%>>
   <%end%>
+  <label> New Title</label> </br>
+  <input type="text" id="new_title" name="title[name]"></br>
   <label> New Landmark</label> </br>
   <input type="text" id="new_landmark" name="landmark[name]"></br>
-  <input type="submit" value="Create New Figure">
+  <input type="submit" value="Edit Figure">
 </form>
