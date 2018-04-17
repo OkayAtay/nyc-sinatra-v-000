@@ -40,6 +40,8 @@ class FiguresController < ApplicationController
 
   patch '/figures/:id' do
     @figure = Figure.create(name: params["figure"]["name"])
+    @figure.update(params["figure"]["name"])
+    binding.pry
     @figure.title_ids = params["figure"]["title_ids"]
     @figure.landmark_ids = params["figure"]["landmark_ids"]
     if params["title"]["name"] != ""
