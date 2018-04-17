@@ -6,7 +6,7 @@
   <input type="text" name="figure[name]" id="figure_name" value="<%= @figure.name %>"> </br>
   <label> Figure Titles</label> </br>
   <% Title.all.each do |title| %>
-  <input type="checkbox" name=figure[title_ids] value="<%=title.id%>"<%='checked' if @figure.title_ids.include?(title)%>>
+  <input type="checkbox" name=figure[title_ids][] id="title_<%=title.id%>" value="<%=title.id%>"<%='checked' if @figure.title_ids.include?(title)%>>
   <%end%> </br>
   <label> New Title</label> </br>
   <input type="text" id="new_title" name="title[name]"></br>
