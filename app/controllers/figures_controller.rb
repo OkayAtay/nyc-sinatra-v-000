@@ -39,7 +39,6 @@ class FiguresController < ApplicationController
   end
 
   patch '/figures/:id' do
-    binding.pry
     @figure = Figure.create(name: params["figure"]["name"])
     @figure.update(params["figure"]["name"])
     @figure.title_ids = params["figure"]["title_ids"]
